@@ -1,0 +1,8 @@
+#Props {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(120, 123, 175);
+}
