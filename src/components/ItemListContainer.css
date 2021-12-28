@@ -6,3 +6,10 @@
     font-weight: bold;
     color: rgb(120, 123, 175);
 }
+
+#items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
