@@ -1,0 +1,11 @@
+#containerItems {
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    justify-content: center;
+    
+}
+
+#itemEstilo {
+    margin:10px;
+}

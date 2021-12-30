@@ -2,25 +2,25 @@ import { useState } from "react";
 import "./ItemCount.css";
 
 const ItemCount = ({ stock, initial }) => {
-  const [count, SetCount] = useState(0);
+  const [count, setCount] = useState(0);
   // const [stock] =useState(3)
-  const Agregar = ({}) => {
+  const Agregar = () => {
     if (stock > count) {
-      SetCount(count + 1);
+      setCount(count + 1);
     } else {
       console.log("No hay stock");
     }
   };
 
-  const Quitar = ({}) =>{
+  const Quitar = () => {
     if (count > initial){
-        SetCount(count - 1);
+        setCount(count - 1);
     } else {
         console.log("No hay productos para quitar");
     }
   }
 
-  const onAdd = ({}) =>{
+  const onAdd = () => {
       alert("Agregaste " + count + " items.");
   }
   return (
