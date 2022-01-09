@@ -1,17 +1,22 @@
 import "./ItemListContainer.css";
-import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
+import { promesa } from "./helper/producto";
 
-const ItemListContainer = (props) => {
-    return (
-       <>
-       <div id="items">
-     <p id="Props"> {props.mensaje} </p>
-     <ItemCount stock={3} initial={0}></ItemCount>
-     <ItemList></ItemList>
-     </div>
-       </> 
-    )
-}
+const ItemListContainer = () => {
+  const [info, setInfo] = useState([]);
+
+  useEffect(() => {
+    promesa.then((resp) => {
+      setInfo(resp);
+    });
+  }, []);
+
+  return (
+    <div>
+      <ItemList productos={info}></ItemList>
+    </div>
+  );
+};
 
 export default ItemListContainer;
