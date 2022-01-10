@@ -1,12 +1,15 @@
 
-const Item = ({detalle}) => {
+
+const Item = ({detalle, isClicked}) => {
     return (
         <div id="itemEstilo" key={detalle.key}>
-            <h2 >Nombre: {detalle.nombre}</h2>
-            <p>Precio: {detalle.precio}</p>
-            <p>Id: {detalle.id}</p>
-            <p>Stock: {detalle.stock}</p>
-            <button>Comprar</button>
+            <img src={detalle.img} className="imgItem"></img>
+            <p className="marca"> {detalle.marca}</p>
+            <p>{detalle.nombre}</p>
+            <p className="precio">$
+            {detalle.precio}</p>
+            <p>{detalle.stock} disponibles</p>
+            <button className="button">Comprar</button>
         </div>
     )
 }

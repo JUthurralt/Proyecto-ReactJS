@@ -1,11 +1,37 @@
 #containerItems {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin: 30px;
     justify-content: center;
     
 }
 
 #itemEstilo {
-    margin:10px;
+    border: 1px solid black;
+    max-height: fit-content;
+    min-width: 30%;
+    line-height: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.button {
+    max-width: 100px;
+    text-align: center;
+    align-self: center;
+}
+
+.marca {
+    font-weight: bold;
+    font-size: 25px;
+    color: gray;
+}
+
+.precio {
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
 }
