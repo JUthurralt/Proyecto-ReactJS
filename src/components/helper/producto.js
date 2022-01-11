@@ -2,7 +2,7 @@ const producto = [
   {
     id: "1",
     nombre: "Ozweego",
-    marca: "Adidas",
+    marca: "adidas",
     precio: "16.699",
     stock: "50",
     key: "1",
@@ -11,7 +11,7 @@ const producto = [
   {
     id: "2",
     nombre: "Air Force 1´07 Lx",
-    marca: "Nike",
+    marca: "nike",
     precio: "19.499",
     stock: "80",
     key: "2",
@@ -20,7 +20,7 @@ const producto = [
   {
     id: "3",
     nombre: "Rs-Fast Buck",
-    marca: "Puma",
+    marca: "puma",
     precio: "17.599",
     stock: "40",
     key: "3",
@@ -29,7 +29,7 @@ const producto = [
   {
     id: "4",
     nombre: "U Ultrarange Exo",
-    marca: "Vans",
+    marca: "vans",
     precio: "19.299",
     stock: "50",
     key: "4",
@@ -38,7 +38,7 @@ const producto = [
   {
     id: "5",
     nombre: "Air Force 1 '07 Se",
-    marca: "Nike",
+    marca: "nike",
     precio: "21.499",
     stock: "30",
     key: "5",
@@ -47,7 +47,7 @@ const producto = [
   {
     id: "6",
     nombre: "Air Force 1 Crater",
-    marca: "Nike",
+    marca: "nike",
     precio: "21.499",
     stock: "50",
     key: "6",

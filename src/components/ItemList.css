@@ -9,6 +9,7 @@
 
 #itemEstilo {
     border: 1px solid black;
+    padding: 10px 0px;
     max-height: fit-content;
     min-width: 30%;
     line-height: 1px;
@@ -28,6 +29,7 @@
     font-weight: bold;
     font-size: 25px;
     color: gray;
+    text-transform: capitalize;
 }
 
 .precio {
