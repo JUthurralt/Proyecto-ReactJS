@@ -1,8 +1,8 @@
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { useState } from "react/cjs/react.development"
-import { promesa } from "./components/helper/producto"
-import ItemDetail from "./components/ItemDetail"
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import { promesa } from "../Helper/producto";
+import ItemDetail from "../ItemDetailContainer/ItemDetail";
 
 
 const ItemDetailContainer = () => {

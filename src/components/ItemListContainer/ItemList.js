@@ -1,6 +1,6 @@
-import Item from "./Item";
-import "./ItemList.css";
-import Loader from "./Loader"
+import Item from "../ItemListContainer/Item";
+import "../ItemListContainer/ItemList.css";
+import Loader from "../ItemListContainer/Loader";
 
 const ItemList = ({ productos, state  }) => {
   

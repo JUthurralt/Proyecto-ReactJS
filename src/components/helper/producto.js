@@ -13,7 +13,7 @@ const producto = [
     nombre: "Air Force 1´07 Lx",
     marca: "nike",
     precio: "19.499",
-    stock: "80",
+    stock: "5",
     key: "2",
     img: "https://www.moovbydexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwa3a49705/products/NI_CZ0268-300/NI_CZ0268-300-1.JPG"
   },

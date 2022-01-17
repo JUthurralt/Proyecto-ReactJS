@@ -1,0 +1,77 @@
+#contador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    margin-right: 300px;
+    border: 2px solid rgba(120, 123, 175, 0.726);
+    background-color: rgba(120, 123, 175, 0.328);
+}
+
+
+
+.cantidad {
+    color: rgb(120, 123, 175);;
+    font-size: 20px;
+}
+
+.agregar {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 150px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 12px;
+    
+}
+
+.sumar {
+    transition-duration: 0.4s;
+    height: 30px;
+    width: 30px;
+}
+
+.sumar:hover {
+    background-color: rgba(43, 43, 90, 0.822);
+    color: white;
+}
+
+.restar {
+    transition-duration: 0.4s;
+    height: 30px;
+    width: 30px;
+    
+}
+
+.restar:hover {
+    background-color: rgba(43, 43, 90, 0.822);
+    color: white;
+}
+
+.agregado {
+    transition-duration: 0.4s;
+    height: 45px;
+    width: 90px;
+    margin-bottom: 5px;
+}
+
+.agregado:hover {
+    background-color: rgba(43, 43, 90, 0.822);
+    color: white;
+}
+
+#producto {
+    /* background-color: gainsboro; */
+    height: 120px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}

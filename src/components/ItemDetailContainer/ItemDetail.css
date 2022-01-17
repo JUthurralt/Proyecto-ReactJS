@@ -16,6 +16,7 @@
     background-size: auto;
     width: fit-content;
     padding: 5px;
+
 }
 
 .imgDetail {
@@ -28,9 +29,22 @@
     height: 600px;
 }
 
+.contenedroImagen {
+    display: flex;
+    justify-content: center;
+}
+
 .itemDetail {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-content: center;
+    
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: center;
 }

@@ -1,7 +1,15 @@
-import "./ItemDetail.css";
-import ItemCount from "./ItemCount"
+import "../ItemDetailContainer/ItemDetail.css";
+import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react/cjs/react.development";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ info }) => {
+  const [show, setShow] = useState(true);
+
+  const onAdd = (count) => {
+    setShow(false);
+  };
+
   return (
     <div className="itemDetail">
       <div className="contenedorImagen">
@@ -14,13 +22,16 @@ const ItemDetail = ({ info }) => {
           </h3>
         </div>
         <div>
-            <p>$
-              {info.precio} 
-            </p>
+          <p>$
+            {info.precio}</p>
+          <p>
+            Stock:
+            {info.stock}
+          </p>
         </div>
         <div>
-            <h4>Talles </h4>
-            <div className="talles">
+          <h4>Talles </h4>
+          <div className="talles">
             <p className="talle">36</p>
             <p className="talle">37</p>
             <p className="talle">38</p>
@@ -30,10 +41,21 @@ const ItemDetail = ({ info }) => {
             <p className="talle">42</p>
             <p className="talle">43</p>
             <p className="talle">44</p>
+          </div>
         </div>
+        {show ? (
+        <ItemCount stock={info.stock} onAdd={onAdd}></ItemCount>
+      ) : (
+        <div className="counter">
+          <Link to="/cart">
+            <button>Ir al carrito</button>
+          </Link>
+          <Link to="/">
+            <button>Seguir Comprando</button>
+          </Link>
         </div>
+      )}
       </div>
-      <ItemCount></ItemCount>
     </div>
   );
 };

@@ -1,8 +1,9 @@
-import "./ItemListContainer.css";
-import ItemList from "./ItemList";
+import "../ItemListContainer/ItemListContainer.css";
+import ItemList from "../ItemListContainer/ItemList";
 import { useEffect, useState } from "react";
-import { promesa } from "./helper/producto";
+import { promesa } from "../Helper/producto";
 import { useParams } from "react-router-dom";
+
 
 
 const ItemListContainer = () => {
