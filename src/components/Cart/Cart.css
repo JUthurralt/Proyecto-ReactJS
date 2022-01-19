@@ -1,0 +1,28 @@
+/* .columna {
+    display: flex;
+    flex-direction: column;
+} */
+.tabla {
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 8px;
+}
+
+li {
+    list-style: none;
+}
+
+ th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    
+  }
+
+  .vaciar {
+      display: flex;
+      justify-content: center;
+      
+  }

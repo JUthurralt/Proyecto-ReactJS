@@ -20,16 +20,16 @@ const NavBar = () => {
             <Link to="/categoria">
               <li>Productos</li>
             </Link>
-            <Link to="/categoria/adidas">
+            <Link to="/categoria/Adidas">
               <li>Adidas</li>
             </Link>
-            <Link to="/categoria/nike">
+            <Link to="/categoria/Nike">
               <li>Nike</li>
             </Link>
-            <Link to="/categoria/puma">
+            <Link to="/categoria/Puma">
               <li>Puma</li>
             </Link>
-            <Link to="/categoria/vans">
+            <Link to="/categoria/Vans">
               <li>Vans</li>
             </Link>
             <Link to="/cart">
