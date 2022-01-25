@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useState, useContext } from "react/cjs/react.development";
 
+
 export const CartContext = createContext([]);
 export function useCartContext() {
   return useContext(CartContext);
@@ -28,12 +29,26 @@ export const CartContextProvider = ({ children }) => {
     setcartList([]);
   }
 
+  const deleteItem = (id) => {
+    setcartList(cartList.filter((prod) => prod.id !== id));
+  }
+
+  const total = () => {
+    const totalCarrito = cartList.reduce(
+      (prev, curr) => prev + curr.precio * curr.cantidad,
+      0
+    );
+    return totalCarrito;
+  }
+
   return (
     <CartContext.Provider
       value={{
         cartList,
         agregarAlCarrito,
         vaciarCarrito,
+        deleteItem,
+        total
       }}
     >
       {children}

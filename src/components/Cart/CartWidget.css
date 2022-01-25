@@ -1,6 +1,13 @@
-#icono {
+/* #icono {
     font-size: 60px;
     color: white;
     height: 30px;
     width: 30px;
+
+} */
+
+.estilo {
+    display: flex;
+    flex-direction: row;
 }
+
