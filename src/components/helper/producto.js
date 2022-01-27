@@ -13,7 +13,7 @@ const producto = [
     nombre: "Air Force 1´07 Lx",
     marca: "Nike",
     precio: "19.499",
-    stock: "5",
+    stock: "50",
     key: "2",
     img: "https://www.moovbydexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwa3a49705/products/NI_CZ0268-300/NI_CZ0268-300-1.JPG"
   },
@@ -22,7 +22,7 @@ const producto = [
     nombre: "Rs-Fast Buck",
     marca: "Puma",
     precio: "17.599",
-    stock: "40",
+    stock: "50",
     key: "3",
     img: "https://www.moovbydexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw765491b2/products/PU_381037-01/PU_381037-01-1.JPG"
   },
@@ -40,7 +40,7 @@ const producto = [
     nombre: "Air Force 1 '07 Se",
     marca: "Nike",
     precio: "21.499",
-    stock: "30",
+    stock: "50",
     key: "5",
     img: "https://www.moovbydexter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw5b077b33/products/NI_CZ0269-101/NI_CZ0269-101-1.JPG"
   },

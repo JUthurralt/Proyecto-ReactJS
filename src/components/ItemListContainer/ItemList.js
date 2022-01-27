@@ -4,6 +4,7 @@ import Loader from "../ItemListContainer/Loader";
 
 const ItemList = ({ productos, state  }) => {
   
+  console.log(productos)
   return (
     <div id="containerItems">
       {state ? 
