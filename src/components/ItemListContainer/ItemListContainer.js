@@ -1,7 +1,7 @@
 import "../ItemListContainer/ItemListContainer.css";
 import ItemList from "../ItemListContainer/ItemList";
 import { useEffect, useState } from "react";
-import { promesa } from "../helper/producto";
+
 import { useParams } from "react-router-dom";
 
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'

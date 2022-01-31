@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
-import { promesa } from "../helper/producto";
 import ItemDetail from "../ItemDetailContainer/ItemDetail";
 import Loader from "../ItemListContainer/Loader";
 import { getDoc, getFirestore, doc} from 'firebase/firestore'
