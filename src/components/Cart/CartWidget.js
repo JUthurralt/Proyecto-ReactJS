@@ -5,6 +5,7 @@ import { useCartContext } from "../Context/CartContext";
 
 const CartWidget = () => {
   const { cartList } = useCartContext();
+  
 
   return (
     <div className="estilo">
@@ -12,7 +13,7 @@ const CartWidget = () => {
         <FontAwesomeIcon icon={faShoppingCart} id="icono"></FontAwesomeIcon>
       </div>
       <div>
-        <p className="p">{cartList.length}</p>
+        <p className="p">{cartList.lenght}</p>
       </div>
     </div>
   );

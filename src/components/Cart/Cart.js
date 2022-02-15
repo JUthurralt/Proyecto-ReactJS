@@ -1,78 +1,174 @@
 import { useCartContext } from "../Context/CartContext";
 import "../Cart/Cart.css";
-import { Link } from 'react-router-dom';
-import { getDefaultNormalizer } from "@testing-library/react";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import {
+  addDoc,
+  collection,
+  documentId,
+  getFirestore,
+  writeBatch,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
+import { useState } from "react/cjs/react.development";
+import Resumen from "../Resumen/Resumen";
 
 const Cart = () => {
   const { cartList, vaciarCarrito, deleteItem, total } = useCartContext();
+  const [condicional, setCondicional] = useState(false);
+  const [dataForm, setDataForm] = useState({
+    email: "",
+    name: "",
+    phone: "",
+  });
+  const [idOrden, setIdOrden] = useState("");
+
   // console.log(cartList)
 
-  const realizarCompra = async() => {
-    let orden = {}
+  const realizarCompra = async (e) => {
+    e.preventDefault();
+    let orden = {};
 
-    orden.buyer= { nombre: 'Julian', email: 'j@gmail.com', tel: '12345678'}
+    orden.buyer = dataForm;
     orden.total = total();
-    orden.items = cartList.map(cartItem  => {
+    orden.items = cartList.map((cartItem) => {
       const id = cartItem.id;
       const nombre = cartItem.nombre;
       const precio = cartItem.precio * cartItem.cantidad;
       const cantidad = cartItem.cantidad;
 
-      return {id, nombre, precio, cantidad}
-        console.log(cartList)
-    })
+      return { id, nombre, precio, cantidad };
+    });
 
-    const db = getFirestore()
-    const ordenCollection = collection(db, 'ordenes')
+    const db = getFirestore();
+
+    const ordenCollection = collection(db, "ordenes");
     await addDoc(ordenCollection, orden)
-    .then(resp => console.log(resp))
+      .then((resp) => setIdOrden(resp.id))
+      .catch((err) => console.log(err));
 
+    const queryCollection = collection(db, "items");
+
+    const queryActualizarStock = query(
+      queryCollection,
+      where(
+        documentId(),
+        "in",
+        cartList.map((it) => it.id)
+      )
+    );
+
+    const batch = writeBatch(db);
+
+    await getDocs(queryActualizarStock)
+      .then((resp) =>
+        resp.docs.forEach((res) =>
+          batch.update(res.ref, {
+            stock:
+              res.data().stock -
+              cartList.find((item) => item.id === res.id).cantidad,
+          })
+        )
+      )
+      .catch((err) => console.log(err))
+      .finally(() => console.log("Stock actualizado"));
+
+    batch.commit();
+    setCondicional(true);
+  };
+
+  function handleChange(e) {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+      [e.target.phone]: e.target.value,
+      [e.target.email]: e.target.value
+    });
   }
+console.log(dataForm)
   return (
-    <>
-    {cartList.length === 0 ? (
-      <div className="sinProd">
-        <h2>No agregaste ningún producto al carrito.</h2>
-        <Link to="/">
-          <button className="detail">Ir al catálogo.</button>
-        </Link>
-      </div>
-    ) : (
-      <>
     <div>
-      <table className="tabla">
-          <tbody>
-        <tr>
-          <th>Marca</th>
-          <th>Nombre</th>
-          <th>Cantidad</th>
-          <th>Precio</th>
-          <th>Borrar</th>
-          <th>Total</th>
-        </tr>
-            {cartList.map((prod) => (
-              <tr key={prod.key}>
-                  <td>{prod.marca} </td>
-                  <td>{prod.nombre} </td>
-                  <td>{prod.cantidad} </td>
-                  <td>$
-                      {prod.precio} </td>
-                  <td><button onClick={() => deleteItem(prod.id)}>X</button></td>
-                  <td>$
-                      {total()}</td>
-              </tr>
-            ))}
-            </tbody>
-      </table>
-      <div className="vaciar">
-      <button  onClick={vaciarCarrito}>Vaciar carrito</button>
-      <button onClick={realizarCompra}>Finalizar compra</button>
-      </div>
+      {condicional ? (
+        <p className="orden">Su número de orden es: <Resumen idOrden={idOrden}></Resumen>Muchas gracias por su compra, {dataForm.name}.</p>
+      ) : (
+        <>
+          {cartList.length === 0 ? (
+            <div className="sinProd">
+              <h2>No agregaste ningún producto al carrito.</h2>
+              <Link to="/">
+                <button className="detail">Ir al catálogo.</button>
+              </Link>
+            </div>
+          ) : (
+            <>
+            <div className="formularioTabla">
+              <div className="tablaPadre">
+            <table className="tabla">
+                <tbody>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Marca</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Borrar</th>
+                    <th>Total</th>
+                  </tr>
+                  {cartList.map((prod) => (
+                    <tr key={prod.key}>
+                      <td><img src={prod.img} className="imagen"></img></td>
+                      <td>{prod.marca} </td>
+                      <td>{prod.nombre} </td>
+                      <td>{prod.cantidad} </td>
+                      <td>$ {prod.precio} </td>
+                      <td>
+                        <button onClick={() => deleteItem(prod.id)}>X</button>
+                      </td>
+                      <td>$ {total()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              </div>
+              <div className="formulario">
+                <p>Datos de contacto:</p>
+              <input
+
+                type="text"
+                name="name"
+                placeholder="Nombre y Apellido"
+                onChange={handleChange}
+                value={dataForm.name}
+              />
+              <br />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Telefono"
+                onChange={handleChange}
+                value={dataForm.phone}
+              />
+              <br />
+              <input
+                type="text"
+                name="email"
+                placeholder="Email"
+                onChange={handleChange}
+                value={dataForm.email}
+              />
+              <br />
+              </div>
+              </div>
+              <div className="vaciar">
+                <button onClick={vaciarCarrito}>Vaciar carrito</button>
+                <button onClick={realizarCompra}>Finalizar compra</button>
+              </div>
+            </>
+          )}
+        </>
+      )}
     </div>
-    </>
-)}
-    </>
   );
 };
 
