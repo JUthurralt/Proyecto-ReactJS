@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Item = ({ detalle }) => {
   return (
-    <div id="itemEstilo" key={detalle.key}>
+    <div id="itemEstilo" key={detalle.key} style={{ height: 590}}>
       <img src={detalle.img} className="imgItem" alt={detalle.nombre}></img>
       <p className="marca"> {detalle.marca}</p>
-      <p>{detalle.nombre}</p>
+      <p className="nombre">{detalle.nombre}</p>
       <p className="precio">$
                     {detalle.precio}</p>
       <p>{detalle.stock} disponibles</p>

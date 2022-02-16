@@ -6,9 +6,8 @@ import { useCartContext } from "../Context/CartContext";
 
 const ItemDetail = ({ info }) => {
   const [show, setShow] = useState(true);
-  const { cartList, agregarAlCarrito } = useCartContext()
+  const {agregarAlCarrito } = useCartContext()
 
-  console.log(cartList);
 
   const onAdd = (count) => {
     setShow(false);
@@ -26,7 +25,7 @@ const ItemDetail = ({ info }) => {
             Zapatillas {info.marca} {info.nombre}{" "}
           </h3>
         </div>
-        <div>
+        <div className="precio-stock">
           <p>$
             {info.precio}</p>
           <p>
@@ -53,10 +52,10 @@ const ItemDetail = ({ info }) => {
       ) : (
         <div className="counter">
           <Link to="/cart">
-            <button>Ir al carrito</button>
+            <button className="carrito">Ir al carrito</button>
           </Link>
           <Link to="/">
-            <button>Seguir Comprando</button>
+            <button className="seguir">Seguir Comprando</button>
           </Link>
         </div>
       )}

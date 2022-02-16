@@ -8,10 +8,7 @@
     width: 150px;
     height: 150px;
     margin-right: 300px;
-    border: 2px solid rgba(120, 123, 175, 0.726);
-    background-color: rgba(120, 123, 175, 0.328);
 }
-
 
 
 .cantidad {
@@ -28,13 +25,14 @@
     align-content: center;
     justify-content: center;
     border-radius: 12px;
-    
+
 }
 
 .sumar {
     transition-duration: 0.4s;
     height: 30px;
     width: 30px;
+    margin: 10px;
 }
 
 .sumar:hover {
@@ -46,7 +44,7 @@
     transition-duration: 0.4s;
     height: 30px;
     width: 30px;
-    
+    margin: 10px;
 }
 
 .restar:hover {
@@ -57,7 +55,7 @@
 .agregado {
     transition-duration: 0.4s;
     height: 45px;
-    width: 90px;
+    width: 200px;
     margin-bottom: 5px;
 }
 
@@ -67,7 +65,6 @@
 }
 
 #producto {
-    /* background-color: gainsboro; */
     height: 120px;
     width: 150px;
     display: flex;

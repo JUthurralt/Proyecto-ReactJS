@@ -24,8 +24,6 @@ const Cart = () => {
   });
   const [idOrden, setIdOrden] = useState("");
 
-  // console.log(cartList)
-
   const realizarCompra = async (e) => {
     e.preventDefault();
     let orden = {};
@@ -40,7 +38,7 @@ const Cart = () => {
 
       return { id, nombre, precio, cantidad };
     });
-
+  
     const db = getFirestore();
 
     const ordenCollection = collection(db, "ordenes");
@@ -86,9 +84,10 @@ const Cart = () => {
       [e.target.email]: e.target.value
     });
   }
-console.log(dataForm)
+
+
   return (
-    <div>
+    <div className="container-cart">
       {condicional ? (
         <p className="orden">Su número de orden es: <Resumen idOrden={idOrden}></Resumen>Muchas gracias por su compra, {dataForm.name}.</p>
       ) : (
@@ -117,7 +116,7 @@ console.log(dataForm)
                   </tr>
                   {cartList.map((prod) => (
                     <tr key={prod.key}>
-                      <td><img src={prod.img} className="imagen"></img></td>
+                      <td><img src={prod.img} className="imagen" alt={prod.nombre}></img></td>
                       <td>{prod.marca} </td>
                       <td>{prod.nombre} </td>
                       <td>{prod.cantidad} </td>
@@ -130,6 +129,7 @@ console.log(dataForm)
                   ))}
                 </tbody>
               </table>
+              <button onClick={vaciarCarrito} className="vaciar">Vaciar carrito</button>
               </div>
               <div className="formulario">
                 <p>Datos de contacto:</p>
@@ -140,6 +140,7 @@ console.log(dataForm)
                 placeholder="Nombre y Apellido"
                 onChange={handleChange}
                 value={dataForm.name}
+                required
               />
               <br />
               <input
@@ -148,6 +149,7 @@ console.log(dataForm)
                 placeholder="Telefono"
                 onChange={handleChange}
                 value={dataForm.phone}
+                required
               />
               <br />
               <input
@@ -156,13 +158,11 @@ console.log(dataForm)
                 placeholder="Email"
                 onChange={handleChange}
                 value={dataForm.email}
+                required
               />
               <br />
+              <button onClick={realizarCompra}>Finalizar compra</button>
               </div>
-              </div>
-              <div className="vaciar">
-                <button onClick={vaciarCarrito}>Vaciar carrito</button>
-                <button onClick={realizarCompra}>Finalizar compra</button>
               </div>
             </>
           )}

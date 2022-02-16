@@ -4,7 +4,6 @@ import Loader from "../ItemListContainer/Loader";
 
 const ItemList = ({ productos, state  }) => {
   
-  console.log(productos)
   return (
     <div id="containerItems">
       {state ? 
@@ -12,8 +11,6 @@ const ItemList = ({ productos, state  }) => {
       :
       productos.map((item) => (
         <Item detalle={item} key={item.key}></Item>
-        // <ItemDetailContainer item={item}></ItemDetailContainer>
-
       ))}
     </div>
   );

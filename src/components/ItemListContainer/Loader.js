@@ -1,8 +1,8 @@
-
+import "../ItemListContainer/Loader.css";
 
 const Loader = () => {
     return(
-            <p>Cargando...</p>
+        <div className="spinner"></div>
     )
 }
 

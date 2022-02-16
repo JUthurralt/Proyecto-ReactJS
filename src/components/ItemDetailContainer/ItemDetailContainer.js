@@ -16,23 +16,17 @@ const ItemDetailContainer = () => {
         const queryProd = doc(db, 'items', idDetalle)
         getDoc(queryProd)
         .then(resp => setInfo({ id: resp.id, ...resp.data()}))
-        .finally(() => setLoading(false))
-    // if (idDetalle) {
-    //     promesa
-    //     .then(resp => setInfo(resp.find(prod => prod.id === idDetalle)))
-    //     .finally(()=> setLoading(false))
-    // } else {
-    //     promesa
-    //     .then((resp) => setInfo(resp))
-    // }        
+        .finally(() => setLoading(false))     
     }, [idDetalle])
+ 
 
-     
     return (
-        <div>
+        <div className="container-itemDetailC">
             {loading ? 
             <Loader></Loader> :
-            <ItemDetail info={info}></ItemDetail>}
+            <div className="item-detail-c">
+            <ItemDetail info={info}></ItemDetail>
+            </div>}
         </div>
     )
 }
